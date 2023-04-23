@@ -1,0 +1,56 @@
+main{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: black;
+}
+.display{
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: red;
+    margin-bottom: 20px;
+}
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: black;
+}
+.boxButton{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0px;
+}
+.button{
+    width: 100px;
+    height: 100px;
+    padding: 5px;
+    border-radius: 50%;
+    margin: 0px 10px;
+}
+.orange{
+    background: #FF9500;
+}
+.gray{
+    background:#D4D4D2;
+    color: black !important;
+}
+.lightDark{
+    background: #1C1C1C;
+}
+.zero-button{
+    width: 220px;
+    height: 100px;
+    padding: 5px;
+    border-radius: 50px;
+    margin: 0px 10px;
+}
