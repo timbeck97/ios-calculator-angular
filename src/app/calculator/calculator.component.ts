@@ -23,24 +23,32 @@ export class CalculatorComponent {
     }else if(value.match(/^[,]$/)){
       this.handleComma();
     }else if(value.match(/^[=]$/)){
-      this.displayValue=String(this.service.calculate(this.total,parseFloat(this.displayValue),this.operator));
+      let teste=this.desformatNumber(this.displayValue);
+      console.log(teste);
+      
+      let result=String(this.service.calculate(this.total,parseFloat(this.desformatNumber(this.displayValue)),this.operator));
+      this.displayValue=this.formatNumber(result.replace('.',','));
     }else if(value.match('AC')){
      this.handleAc();
     }else if(value.match(/^\+\/\-$/)){
       this.handleNegative();
+    }else if(value.match('%')){
+      this.handlePercent();
     }
     
     
   }
   handleNumber(value: string): void {
+    let val;
     if (this.displayValue === '0') {
-      this.displayValue = value;
+      val = value;
     } else {
-      this.displayValue += value;
+      val=this.displayValue + value;
     }
+    this.displayValue= this.formatNumber(val);
   }
   handleOperator(value: string): void {
-    this.total=parseFloat(this.displayValue);
+    this.total=parseFloat(this.desformatNumber(this.displayValue));
     this.displayValue='0';
     this.operator=value;
   }
@@ -57,5 +65,21 @@ export class CalculatorComponent {
   }
   handleNegative():void{
     this.displayValue='-'+this.displayValue;
+  }
+  handlePercent():void{
+    this.displayValue=String(parseFloat(this.displayValue.replace(',','.'))/100).replace('.',',');
+  }
+  formatNumber(value: string): string {
+    console.log(value);
+    
+    value=value.replaceAll('.','');
+    let index=value.includes(',')?value.indexOf(','):value.length;
+    for(let i=index-3;i>0;i-=3){
+      value=value.slice(0,i)+'.'+value.slice(i);
+    } 
+    return value;
+  }
+  desformatNumber(value: string): string {
+    return value.replaceAll('.','').replaceAll(',','.');
   }
 }
