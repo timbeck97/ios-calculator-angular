@@ -2,37 +2,37 @@
     
     <div class="box">
         <div class="display">
-        
+        {{displayValue}}
         </div>
         <div>
             <div class="boxButton">
-                <span class="button gray"> </span>
-                <span class="button gray"> </span>
-                <span class="button gray"> </span>
-                <span class="button orange"> </span>
+                <span class="button gray" (click)="pressButton($event)">AC</span>
+                <span class="button gray" (click)="pressButton($event)">+/-</span>
+                <span class="button gray" (click)="pressButton($event)">%</span>
+                <span class="button orange" (click)="pressButton($event)">÷</span>
             </div>
             <div class="boxButton">
-                <span class="button lightDark"> </span>
-                <span class="button lightDark"> </span>
-                <span class="button lightDark"> </span>
-                <span class="button orange"> </span>
+                <span class="button lightDark" (click)="pressButton($event)">7</span>
+                <span class="button lightDark" (click)="pressButton($event)">8</span>
+                <span class="button lightDark" (click)="pressButton($event)">9</span>
+                <span class="button orange" (click)="pressButton($event)">x</span>
             </div>
             <div class="boxButton">
-                <span class="button lightDark"> </span>
-                <span class="button lightDark"> </span>
-                <span class="button lightDark"> </span>
-                <span class="button orange"> </span>
+                <span class="button lightDark" (click)="pressButton($event)">4</span>
+                <span class="button lightDark" (click)="pressButton($event)">5</span>
+                <span class="button lightDark" (click)="pressButton($event)">6</span>
+                <span class="button orange" (click)="pressButton($event)">-</span>
             </div>
             <div class="boxButton">
-                <span class="button lightDark"> </span>
-                <span class="button lightDark"> </span>
-                <span class="button lightDark"> </span>
-                <span class="button orange"> </span>
+                <span class="button lightDark" (click)="pressButton($event)">1</span>
+                <span class="button lightDark" (click)="pressButton($event)">2</span>
+                <span class="button lightDark" (click)="pressButton($event)">3</span>
+                <span class="button orange" (click)="pressButton($event)">+</span>
             </div>
             <div class="boxButton">
-                <span class="zero-button lightDark"> </span>
-                <span class="button lightDark"> </span>
-                <span class="button orange"> </span>
+                <span class="zero-button lightDark" (click)="pressButton($event)">0</span>
+                <span class="button lightDark" (click)="pressButton($event)">,</span>
+                <span class="button orange" (click)="pressButton($event)">=</span>
             </div>
         </div>
       

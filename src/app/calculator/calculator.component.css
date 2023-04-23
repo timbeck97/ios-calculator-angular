@@ -10,11 +10,13 @@ main{
     height: 80px;
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     flex-direction: column;
-    background: red;
     margin-bottom: 20px;
+    color: white;
+    font-size: 65px;
+    padding-right: 40px;
 }
 .box{
     display: flex;
@@ -28,7 +30,7 @@ main{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin: 5px 0px;
+    margin:10px 0px;
 }
 .button{
     width: 100px;
@@ -36,6 +38,12 @@ main{
     padding: 5px;
     border-radius: 50%;
     margin: 0px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:white;
+    font-size: 35px;
+    cursor: pointer;
 }
 .orange{
     background: #FF9500;
@@ -50,7 +58,16 @@ main{
 .zero-button{
     width: 220px;
     height: 100px;
-    padding: 5px;
+    padding: 5px 5px 5px 25px;
     border-radius: 50px;
     margin: 0px 10px;
+    color:white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 35px;
+    cursor: pointer;
+}
+.zero-button:hover, .button:hover{
+    opacity: 0.7;
 }
