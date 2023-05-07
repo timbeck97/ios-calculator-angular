@@ -11,6 +11,7 @@ export class CalculatorComponent {
   service:CalculatorService;
   total:number=0;
   operator:string='';
+  isOperating:boolean=false;
   constructor(CalculatorService: CalculatorService) { 
     this.service=CalculatorService;
   }
@@ -23,11 +24,10 @@ export class CalculatorComponent {
     }else if(value.match(/^[,]$/)){
       this.handleComma();
     }else if(value.match(/^[=]$/)){
-      let teste=this.desformatNumber(this.displayValue);
-      console.log(teste);
-      
+
       let result=String(this.service.calculate(this.total,parseFloat(this.desformatNumber(this.displayValue)),this.operator));
       this.displayValue=this.formatNumber(result.replace('.',','));
+      this.operator='';
     }else if(value.match('AC')){
      this.handleAc();
     }else if(value.match(/^\+\/\-$/)){
@@ -40,8 +40,11 @@ export class CalculatorComponent {
   }
   handleNumber(value: string): void {
     let val;
-    if (this.displayValue === '0') {
+    if (this.displayValue === '0' || this.isOperating) {
       val = value;
+      if(this.isOperating){
+        this.isOperating=false;
+      }
     } else {
       val=this.displayValue + value;
     }
@@ -49,7 +52,8 @@ export class CalculatorComponent {
   }
   handleOperator(value: string): void {
     this.total=parseFloat(this.desformatNumber(this.displayValue));
-    this.displayValue='0';
+    //this.displayValue='0';
+    this.isOperating=true;
     this.operator=value;
   }
   handleComma():void{
@@ -70,8 +74,6 @@ export class CalculatorComponent {
     this.displayValue=String(parseFloat(this.displayValue.replace(',','.'))/100).replace('.',',');
   }
   formatNumber(value: string): string {
-    console.log(value);
-    
     value=value.replaceAll('.','');
     let index=value.includes(',')?value.indexOf(','):value.length;
     for(let i=index-3;i>0;i-=3){
